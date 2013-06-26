@@ -1,0 +1,15 @@
+=INDEX(Cities!C2:C1750, SMALL(IF('Summary-HD'!$A2, ROW(Cities!A1:A1741)-MIN(ROW(Cities!A2:A1741))+1, ""), COLUMN(A1)))
+
+=INDEX($C$2:$C$6, SMALL(IF($B$8=$B$2:$B$6, ROW($B$2:$B$6)-MIN(ROW($B$2:$B$6))+1, ""), COLUMN(C1)))
+
+Function Lookup_concat(Search_string As String, _
+  Search_in_col As Range, Return_val_col As Range)
+Dim i As Long
+Dim result As String
+For i = 1 To Search_in_col.Count
+  If Search_in_col.Cells(i, 1) = Search_string Then
+    result = result & " " & Return_val_col.Cells(i, 1).Value
+  End If
+Next
+Lookup_concat = Trim(result)
+End Function

@@ -1,0 +1,29 @@
+Sub DWID_upload_reform()
+'
+' DWID_upload_reform Macro
+' Moves DWID and fills in last column
+
+Dim MyColumn  As String
+MyColumn = "D"
+LastRow = Cells(Cells.Rows.Count, MyColumn).End(xlUp).Row
+Range("D1:D" & LastRow).Select
+Selection.Cut
+
+    Columns("A:A").Select
+    Selection.Insert Shift:=xlToRight
+	
+	Dim cell As range
+Dim myRange As range
+
+Set myRange = Application.InputBox("Select the range", Type:=8)
+Application.ScreenUpdating = False
+
+For Each cell In myRange
+    If Len(cell) = 0 Then
+        cell.Value = "Null"
+    End If
+Next
+
+Application.ScreenUpdating = True
+
+End Sub

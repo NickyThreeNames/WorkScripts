@@ -1,0 +1,29 @@
+Option Explicit
+Sub Delete_Columns()
+Dim LASTCOL As Integer
+Dim J As Integer
+Dim DELETE_FLAG As Boolean
+    LASTCOL = Cells(1, Columns.Count).End(xlToLeft).Column
+    For J = LASTCOL To 1 Step -1
+        DELETE_FLAG = True
+        Select Case Cells(1, J)
+            Case "Opportunity ID"
+                DELETE_FLAG = False
+            Case "Opportunity Name"
+                DELETE_FLAG = False
+            Case "Client"
+                DELETE_FLAG = False
+            Case "Client State"
+                DELETE_FLAG = False
+            Case "Pursuit Leader"
+                DELETE_FLAG = False
+            Case "Pursuit Leader"
+                DELETE_FLAG = False
+            Case "Phase"
+                DELETE_FLAG = False
+            Case "Total Value"
+                DELETE_FLAG = False
+        End Select
+        If (DELETE_FLAG) Then Columns(J).Delete
+    Next J
+End Sub

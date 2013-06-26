@@ -1,0 +1,20 @@
+Sub batchconvertcsvxls()
+
+Dim wb As Workbook
+Dim strFile As String, strDir As String
+
+strDir = "C:\Data"
+strFile = Dir(strDir & "*.csv")
+
+Do While strFile <> ""
+
+    Set wb = Workbooks.Open(strDir & strFile)
+    With wb
+        .SaveAs Replace(wb.FullName, ".csv", ".xls"), 6 'UPDATE:
+        .Close True
+    End With
+    Set wb = Nothing
+    strFile = Dir
+Loop
+
+End Sub

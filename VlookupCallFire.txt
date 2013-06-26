@@ -1,0 +1,5 @@
+=if(isna(VLOOKUP(...)), "no match", VLOOKUP(...)) #insert "no match" if VLOOKUP fails
+
+=VLOOKUP('11-6CallSummaryv2'!A:A,'11-6CallSummaryv2'!A10:G482,6,FALSE)
+
+=if(isna(VLOOKUP('11-6CallSummaryv2'!A:A,'11-6CallSummaryv2'!A10:G482,6,FALSE)), "no match", VLOOKUP('11-6CallSummaryv2'!A:A,'11-6CallSummaryv2'!A10:G482,6,FALSE)

@@ -1,0 +1,11 @@
+Sub selectCol() {
+    dim i as integer
+    dim arr as variant
+
+    arr = array('a', 'b', 'f', 'g')
+
+    for i = 0 to ubound(arr)
+        Columns(arr[i]).select
+        ' do something with column
+    next i
+}

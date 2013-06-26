@@ -1,0 +1,30 @@
+Dim wb As Workbook
+  
+    folderPath = "C:\SAP Imports\Sales Orders\" 'change to suit
+    
+    If Right(folderPath, 1) <> "\" Then folderPath = folderPath + "\"
+    
+    filename = Dir(folderPath & "*.csv")
+    Do While filename <> ""
+      Application.ScreenUpdating = False
+        Set wb = Workbooks.Open(folderPath & filename)
+         
+        'Call a subroutine here to operate on the just-opened workbook
+        Call 'name of your other macro here
+        
+        filename = Dir
+    Loop
+  Application.ScreenUpdating = True
+End Sub
+
+Sub MV_CallFire_toupload()
+
+C:\Data\CallFire
+
+Add in this to disable save warnings
+ActiveWorkbook.Close True 
+' closes the active workbook and saves any changes
+WorkbookObject.Close
+
+or WorkbookObject.Saved = True
+WorkbookObject.Close

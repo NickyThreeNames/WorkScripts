@@ -1,0 +1,9 @@
+df$dataz[df$dataz == 0] <- 1
+
+ft2$Demographic[ft2$Demographic == "Remaining"] <- "Males"
+ft2$Demographic[ft2$Demographic == "Female"] <- "Females"
+
+#Using SQL to update#
+UPDATE Weather
+SET AverageTemperature = 20
+WHERE City = 'New York'

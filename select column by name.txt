@@ -1,0 +1,10 @@
+TextBox1.Value = Cells(ActiveCell.Row, Range("name1").Column).Value
+
+Cells.Find("Company", , xlValues, xlWhole).EntireColumn.SpecialCells(xlCellTypeConstants).Select
+
+If you want to not include the cell with "Company" in the selection, then use
+
+Cells.Find("Company", , xlValues, xlWhole).EntireColumn.SpecialCells(xlCellTypeConstants).Offset(1).SpecialCells(xlCellTypeConstants).Select
+
+
+But I have also assumed there is nothing else in the column except the heading and the data values.

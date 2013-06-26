@@ -1,0 +1,17 @@
+Sub FillWithNull()
+
+Dim cell As range
+Dim myRange As range
+
+Set myRange = Application.InputBox("Select the range", Type:=8)
+Application.ScreenUpdating = False
+
+For Each cell In myRange
+    If Len(cell) = 0 Then
+        cell.Value = "Null"
+    End If
+Next
+
+Application.ScreenUpdating = True
+
+End Sub
